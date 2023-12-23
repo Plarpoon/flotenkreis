@@ -17,6 +17,9 @@ impl EventHandler for Handler {}
 
 #[tokio::main]
 async fn main() {
+    // Load environment variables from a .env file
+    dotenv::dotenv().ok();
+
     // Configure the client with your Discord bot token in the environment.
     let framework = StandardFramework::new().group(&GENERAL_GROUP);
     framework.configure(Configuration::new().prefix("."));
